@@ -59,3 +59,20 @@ def test_pydantic_ai_example_blocks_empty_tool_result() -> None:
         namespace["BlockedObservation"], match="EMPTY_WITHOUT_NOT_FOUND_SENTINEL"
     ):
         namespace["guard_customer_result"]([])
+
+
+def test_langchain_example_blocks_empty_tool_result() -> None:
+    """The framework-free LangChain guard blocks empty results."""
+    namespace = runpy.run_path(EXAMPLES / "langchain_tool_guard.py")
+    with pytest.raises(
+        namespace["BlockedObservation"],
+        match="EMPTY_WITHOUT_NOT_FOUND_SENTINEL",
+    ):
+        namespace["guard_search_result"]([])
+
+
+def test_langchain_example_docstring_documents_installation() -> None:
+    """The example's module docstring instructs how to install optional dependencies."""
+    doc = (EXAMPLES / "langchain_tool_guard.py").read_text(encoding="utf-8")
+    assert "Install ``langchain-core``" in doc
+    assert "search_customer.invoke" in doc or "build_tool().invoke" in doc
