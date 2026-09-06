@@ -1,4 +1,7 @@
-"""Guard a LangChain tool result before it enters model context."""
+"""Guard a LangChain tool result before it enters model context.
+
+Install ``langchain-core`` to run the complete example.
+"""
 
 from __future__ import annotations
 
@@ -50,13 +53,15 @@ def guard_search_result(result: object) -> object:
     return normalization.payload
 
 
-def build_tool():
+def build_tool():  # type annotations would require an optional dependency
     """Create a LangChain tool with a guarded result."""
     from langchain_core.tools import tool
 
     @tool
     def search_customer(query: str) -> object:
         """Search the customer database."""
+        # Stand-in for a database call. Raising here prevents [] from becoming
+        # an unverified observation promoted to model context.
         database_result: list[object] = []
         return guard_search_result(database_result)
 
@@ -64,4 +69,8 @@ def build_tool():
 
 
 if __name__ == "__main__":
-    build_tool()
+    search_customer = build_tool()
+    try:
+        search_customer.invoke({"query": "customer 42"})
+    except BlockedObservation as exc:
+        print(f"Successfully blocked unverified observation: {exc}")
