@@ -88,60 +88,50 @@
   <!-- Right: Hero Vector Interlocking Seal Identity -->
   <g transform="translate(860, 320) scale(2.2)" filter="url(#spShadow)">
     <g transform="translate(-80, -80)">
-      <!-- Ambient Seal Light -->
-      <circle cx="80" cy="80" r="70" fill="url(#bgGlow)" />
-
-      <!-- Primary Clasp: The Incoming Observation -->
-      <path d="M 80 22
-               C 105 22, 126 38, 134 60
-               C 137 68, 134 76, 125 78
-               C 116 80, 110 74, 107 67
-               C 102 52, 88 42, 73 44
-               C 61 46, 52 54, 48 66
-               L 38 60
-               C 45 40, 60 22, 80 22 Z"
+      <!-- Outer Clasp 1: Upper Right -->
+      <path d="M 80 20
+               C 107 20, 129 37, 137 61
+               C 139.5 68.5, 136 75.5, 128.5 77
+               C 121 78.5, 114 74, 111.5 67
+               C 106 51, 94 41, 80 41
+               C 68 41, 57 48, 52 59
+               L 37 52
+               C 45 33, 61 20, 80 20 Z"
             fill="url(#spUpperClasp)" />
 
-      <!-- Complementary Clasp: The Verification Contract -->
-      <path d="M 80 138
-               C 55 138, 34 122, 26 100
-               C 23 92, 26 84, 35 82
-               C 44 80, 50 86, 53 93
-               C 58 108, 72 118, 87 116
-               C 99 114, 108 106, 112 94
-               L 122 100
-               C 115 120, 100 138, 80 138 Z"
+      <!-- Outer Clasp 2: Lower Left -->
+      <path d="M 80 140
+               C 53 140, 31 123, 23 99
+               C 20.5 91.5, 24 84.5, 31.5 83
+               C 39 81.5, 46 86, 48.5 93
+               C 54 109, 66 119, 80 119
+               C 92 119, 103 112, 108 101
+               L 123 108
+               C 115 127, 99 140, 80 140 Z"
             fill="url(#spLowerClasp)" />
 
-      <!-- Upper Anchor Node -->
-      <path d="M 52 64
-               C 54 52, 66 44, 78 46
-               L 86 62
-               C 74 62, 64 68, 60 76
+      <!-- Inner Stepped Band 1 -->
+      <path d="M 51 62
+               C 53 50, 65 42, 78 44
+               L 86 61
+               C 75 61, 64 67, 59 75
                Z"
-            fill="#00F5A0" opacity="0.85" />
+            fill="#00F5A0" />
 
-      <!-- Lower Anchor Node -->
-      <path d="M 108 96
-               C 106 108, 94 116, 82 114
-               L 74 98
-               C 86 98, 96 92, 100 84
+      <!-- Inner Stepped Band 2 -->
+      <path d="M 109 98
+               C 107 110, 95 118, 82 116
+               L 74 99
+               C 85 99, 96 93, 101 85
                Z"
-            fill="#007CF0" opacity="0.85" />
+            fill="#007CF0" />
 
-      <!-- Sealed Core Aperture -->
-      <polygon points="80,62 95,80 80,98 65,80"
+      <!-- Precision Sealed Core: Diamond Aperture -->
+      <polygon points="80,61 96,80 80,99 64,80"
                fill="url(#spCoreGlow)" />
 
-      <!-- Micro Calibration Core Center -->
-      <circle cx="80" cy="80" r="5" fill="#090D16" />
-      <circle cx="80" cy="80" r="2.2" fill="#00F5A0" />
-
-      <!-- Coordinate Accent Markers -->
-      <circle cx="80" cy="14" r="2" fill="#00F5A0" opacity="0.7" />
-      <circle cx="146" cy="80" r="2" fill="#00D9F5" opacity="0.7" />
-      <circle cx="80" cy="146" r="2" fill="#007CF0" opacity="0.7" />
-      <circle cx="14" cy="80" r="2" fill="#00DFD8" opacity="0.7" />
+      <!-- Central Sensor Core -->
+      <circle cx="80" cy="80" r="3.5" fill="#007CF0" />
     </g>
   </g>
 </svg>
