@@ -9,6 +9,7 @@
 [![Demo](https://img.shields.io/badge/Playground-Live%20Demo-blue.svg)](https://sx4im.github.io/resultseal/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/downloads/)
+[![Good First Issues](https://img.shields.io/github/issues/sx4im/resultseal/good%20first%20issue?color=7057ff&label=Good%20First%20Issues)](https://github.com/sx4im/resultseal/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 **HTTP 200 is not an observation. Empty is not not-found. A tool call is not an effect.**
 
@@ -118,8 +119,10 @@ make all       # test, lint, typecheck, build
 Contributions are warmly welcome! Whether you are:
 - Adding a new protocol adapter (e.g. SQL query results, GraphQL)
 - Submitting an edge-case negative test fixture in `fixtures/`
-- Contributing an integration example for an agent framework (LangChain, LangGraph, Pydantic-AI, CrewAI)
+- Contributing an integration example for an agent framework (LangChain, LangGraph, Pydantic-AI, CrewAI, LlamaIndex, AutoGen)
 - Improving documentation or adding production contract recipes
+
+👉 **Looking for a good place to start?** Browse our [Good First Issues](https://github.com/sx4im/resultseal/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) — each issue has clear instructions, references, and expected outcomes.
 
 Check out [CONTRIBUTING.md](CONTRIBUTING.md) to get set up in under two minutes.
 

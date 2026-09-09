@@ -2,6 +2,14 @@
 
 Thank you for your interest in contributing! ResultSeal is an evidence-driven, deterministic toolkit that prevents AI agents from promoting unverified tool observations into factual claims.
 
+## Finding Something to Work On
+
+Browse our active contributor issues:
+- 🚀 **[Good First Issues](https://github.com/sx4im/resultseal/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)** — well-scoped issues with step-by-step guidance and reference files.
+- 💡 **[Help Wanted Issues](https://github.com/sx4im/resultseal/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)** — protocol adapters, framework integrations, and test fixtures.
+
+Feel free to comment on an issue to claim it before starting work!
+
 ## Development Setup
 
 ```bash
