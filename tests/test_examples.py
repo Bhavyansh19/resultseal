@@ -76,3 +76,24 @@ def test_langchain_example_docstring_documents_installation() -> None:
     doc = (EXAMPLES / "langchain_tool_guard.py").read_text(encoding="utf-8")
     assert "Install ``langchain-core``" in doc
     assert "search_customer.invoke" in doc or "build_tool().invoke" in doc
+
+
+def test_llamaindex_example_blocks_empty_tool_result() -> None:
+    """The framework-free LlamaIndex guard blocks empty results and seals verified ones."""
+    namespace = runpy.run_path(EXAMPLES / "llamaindex_tool_guard.py")
+    with pytest.raises(
+        namespace["BlockedObservation"],
+        match="EMPTY_WITHOUT_NOT_FOUND_SENTINEL",
+    ):
+        namespace["guard_search_result"]([])
+
+    # Valid observation seals cleanly
+    verified = namespace["guard_search_result"]({"customer_id": "42", "name": "Ada"})
+    assert verified == {"customer_id": "42", "name": "Ada"}
+
+
+def test_llamaindex_example_docstring_documents_installation() -> None:
+    """The example documents how to install the optional LlamaIndex dependency."""
+    doc = (EXAMPLES / "llamaindex_tool_guard.py").read_text(encoding="utf-8")
+    assert "Install ``llama-index-core``" in doc
+    assert "FunctionTool" in doc
