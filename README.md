@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sx4im/resultseal/master/assets/logo.svg?v=3" width="110" height="110" alt="ResultSeal Logo" />
+  <img src="https://raw.githubusercontent.com/sx4im/resultseal/master/assets/logo.png" width="120" height="120" alt="ResultSeal Logo" />
 </p>
 
 # ResultSeal
