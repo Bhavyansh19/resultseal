@@ -1,0 +1,27 @@
+fixture_version: 1
+name: redis-nil-response
+claim_type: found
+contract:
+  schema_version: "1"
+  claim_type: found
+  required_fields:
+    - user_id
+    - session_token
+  freshness:
+    mode: not_required
+  min_source_version: null
+  source_ref: fixture://redis
+  target_ref: cache:user:42
+  not_found_sentinel: null
+  effect_evidence_required: false
+input:
+  kind: json
+  source_ref: fixture://redis
+  target_ref: cache:user:42
+  tool_name: redis_get
+  body: null
+expected:
+  truth_state: empty
+  decision: blocked
+  reason_codes:
+    - EMPTY_WITHOUT_NOT_FOUND_SENTINEL
