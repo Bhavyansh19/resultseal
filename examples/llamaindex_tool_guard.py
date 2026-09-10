@@ -29,7 +29,7 @@ def guard_search_result(result: object) -> object:
     normalization = normalize(
         {
             "kind": "json",
-            "source_ref": "llamaindex://customer-tool",
+            "source_ref": "mcp://crm-server",
             "target_ref": "customer:42",
             "tool_name": "search_customer",
             "body": result,
