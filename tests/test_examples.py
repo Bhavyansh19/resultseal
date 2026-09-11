@@ -97,3 +97,20 @@ def test_llamaindex_example_docstring_documents_installation() -> None:
     doc = (EXAMPLES / "llamaindex_tool_guard.py").read_text(encoding="utf-8")
     assert "Install ``llama-index-core``" in doc
     assert "FunctionTool" in doc
+
+
+def test_crewai_example_blocks_empty_tool_result() -> None:
+    """The framework-free CrewAI guard blocks empty results."""
+    namespace = runpy.run_path(EXAMPLES / "crewai_tool_guard.py")
+    with pytest.raises(
+        namespace["BlockedObservation"],
+        match="EMPTY_WITHOUT_NOT_FOUND_SENTINEL",
+    ):
+        namespace["guard_search_result"]([])
+
+
+def test_crewai_example_docstring_documents_installation() -> None:
+    """The example's module docstring instructs how to install optional dependencies."""
+    doc = (EXAMPLES / "crewai_tool_guard.py").read_text(encoding="utf-8")
+    assert "Install ``crewai``" in doc
+    assert "search_customer.run" in doc or "build_tool().run" in doc
