@@ -24,7 +24,7 @@ input:
     errors:
       - message: "User not found"
 expected:
-  truth_state: empty
+  truth_state: partial
   decision: blocked
   reason_codes:
-    - EMPTY_WITHOUT_NOT_FOUND_SENTINEL
+    - MISSING_REQUIRED_FIELD

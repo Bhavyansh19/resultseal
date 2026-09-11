@@ -124,8 +124,6 @@ def _normalize_json(
 ) -> Normalization:
     body = raw.get("body")
     payload, parse_failed = _parse_body(body)
-    if not parse_failed:
-        payload = _graphql_data_payload(raw.get("tool_name"), payload)
     truth = TruthState.PARSE_ERROR if parse_failed else TruthState.OBSERVED
     envelope = _envelope(
         raw,
@@ -257,15 +255,6 @@ def _missing_schema_fields(schema: object, payload: object) -> list[str]:
     if not isinstance(required, list) or not isinstance(payload, dict):
         return []
     return [name for name in required if isinstance(name, str) and name not in payload]
-
-
-def _graphql_data_payload(tool_name: object, payload: object) -> object:
-    """GraphQL responses carry domain data under ``data``; unwrap for evaluation."""
-    if tool_name != "graphql_query":
-        return payload
-    if not isinstance(payload, dict) or "data" not in payload:
-        return payload
-    return payload.get("data")
 
 
 def _parse_body(body: object) -> tuple[object, bool]:
