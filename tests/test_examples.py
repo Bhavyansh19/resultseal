@@ -100,13 +100,17 @@ def test_llamaindex_example_docstring_documents_installation() -> None:
 
 
 def test_crewai_example_blocks_empty_tool_result() -> None:
-    """The framework-free CrewAI guard blocks empty results."""
+    """The framework-free CrewAI guard blocks empty results and seals verified ones."""
     namespace = runpy.run_path(EXAMPLES / "crewai_tool_guard.py")
     with pytest.raises(
         namespace["BlockedObservation"],
         match="EMPTY_WITHOUT_NOT_FOUND_SENTINEL",
     ):
         namespace["guard_search_result"]([])
+
+    # Valid observation seals cleanly
+    verified = namespace["guard_search_result"]({"customer_id": "42", "name": "Ada"})
+    assert verified == {"customer_id": "42", "name": "Ada"}
 
 
 def test_crewai_example_docstring_documents_installation() -> None:
