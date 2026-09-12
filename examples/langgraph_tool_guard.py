@@ -72,8 +72,28 @@ def build_node():  # type annotations would require optional dependencies
 
 
 if __name__ == "__main__":
+    from langchain_core.messages import AIMessage
+    from langgraph.runtime import Runtime
+
     node = build_node()
     try:
-        node.invoke({"messages": [{"role": "tool", "content": "customer 42"}]})
+        node.invoke(
+            {
+                "messages": [
+                    AIMessage(
+                        content="",
+                        tool_calls=[
+                            {
+                                "name": "search_customer",
+                                "args": {"query": "customer 42"},
+                                "id": "search-customer-42",
+                                "type": "tool_call",
+                            }
+                        ],
+                    )
+                ]
+            },
+            runtime=Runtime(),
+        )
     except BlockedObservation as exc:
         print(f"Successfully blocked unverified observation: {exc}")
